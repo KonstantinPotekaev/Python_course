@@ -1,16 +1,22 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import string
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def deleteDuplicates(lst):  # lst - list of duplicate values
+    return list(set(lst))
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def popularWords(s):  # s - string (text)
+    punctuation = string.punctuation + '–' + '—'
+    s = s.translate(str.maketrans('', '', punctuation))
+    lst_words = list(set(list(s.split())))
+    cnt_mas = []  # list for counting the number of repetitions
+    for word in lst_words:
+        cnt_mas.append((s.count(word), word))
+    cnt_mas.sort(reverse=True)
+    for i in range(min(10,len(cnt_mas))):
+        print(cnt_mas[i])
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+def backpack(d):    #d - dictionary of items
+
+
